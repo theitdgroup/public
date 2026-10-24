@@ -1,0 +1,79 @@
+{
+ "id": "roman-gold",
+ "version": 1,
+ "name": "Roman Gold",
+ "author": "ClockHub",
+ "description": "Dress watch with gold Roman numerals.",
+ "background": {
+  "color": "#1A1612",
+  "color2": "#000000",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "circle",
+   "radius": 228,
+   "color": "none",
+   "borderColor": "#3A2F1E",
+   "borderWidth": 2
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 220,
+   "length": 6,
+   "width": 1,
+   "color": "#8B6F3E",
+   "majorEvery": 5,
+   "majorLength": 14,
+   "majorWidth": 3,
+   "majorColor": "#D4AF37"
+  },
+  {
+   "type": "numerals",
+   "style": "roman",
+   "radius": 178,
+   "size": 28,
+   "color": "#D4AF37"
+  },
+  {
+   "type": "text",
+   "text": "CLOCKHUB",
+   "x": 0,
+   "y": -80,
+   "size": 14,
+   "color": "#8B6F3E",
+   "letterSpacing": 3
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 108,
+   "tail": 0,
+   "width": 7,
+   "color": "#D4AF37"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 160,
+   "tail": 0,
+   "width": 5,
+   "color": "#D4AF37"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 182,
+   "tail": 30,
+   "width": 2,
+   "color": "#E5C76B",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 7,
+   "color": "#D4AF37"
+  }
+ ]
+}

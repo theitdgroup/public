@@ -1,0 +1,48 @@
+{
+ "id": "sunset",
+ "version": 1,
+ "name": "Sunset",
+ "author": "ClockHub",
+ "description": "Warm gradient with a clean digital time.",
+ "background": {
+  "color": "#FF7E5F",
+  "color2": "#2B1055",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": -20,
+   "size": 96,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "text",
+   "text": "{dddd}",
+   "x": 0,
+   "y": 62,
+   "size": 24,
+   "color": "#FFE5D9"
+  },
+  {
+   "type": "text",
+   "text": "{d} {MMMM}",
+   "x": 0,
+   "y": 96,
+   "size": 20,
+   "color": "#FFD1C1"
+  },
+  {
+   "type": "arc",
+   "value": "battery",
+   "radius": 226,
+   "width": 4,
+   "startAngle": 150,
+   "sweep": 60,
+   "color": "#FFFFFF",
+   "bgColor": "#FFFFFF40"
+  }
+ ]
+}

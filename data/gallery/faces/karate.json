@@ -1,0 +1,129 @@
+{
+ "id": "karate",
+ "version": 1,
+ "name": "Karate",
+ "author": "ClockHub",
+ "description": "Rice-paper dial with a karate high kick on a red rising sun.",
+ "background": {
+  "color": "#F4EFE6",
+  "color2": "#E6DCCB",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "circle",
+   "radius": 231,
+   "color": "none",
+   "borderColor": "#1A1A1A",
+   "borderWidth": 3
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 224,
+   "length": 7,
+   "width": 2,
+   "color": "#9A8F80",
+   "majorEvery": 5,
+   "majorLength": 18,
+   "majorWidth": 6,
+   "majorColor": "#1A1A1A"
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -172,
+   "size": 16,
+   "color": "#1A1A1A",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "circle",
+   "x": 0,
+   "y": -6,
+   "radius": 128,
+   "color": "#C8102E"
+  },
+  {
+   "type": "image",
+   "src": "karate_kick.bin",
+   "x": 10,
+   "y": 1
+  },
+  {
+   "type": "text",
+   "text": "KARATE",
+   "x": 0,
+   "y": 168,
+   "size": 20,
+   "color": "#1A1A1A",
+   "letterSpacing": 6
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 104,
+   "tail": 16,
+   "width": 15,
+   "color": "#F4EFE6",
+   "smooth": false
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 102,
+   "tail": 16,
+   "width": 10,
+   "color": "#1A1A1A",
+   "smooth": false
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 166,
+   "tail": 16,
+   "width": 12,
+   "color": "#F4EFE6",
+   "smooth": false
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 164,
+   "tail": 16,
+   "width": 7,
+   "color": "#1A1A1A",
+   "smooth": false
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 190,
+   "tail": 36,
+   "width": 7,
+   "color": "#F4EFE6",
+   "smooth": true
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 188,
+   "tail": 34,
+   "width": 3,
+   "color": "#C8102E",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 9,
+   "color": "#1A1A1A",
+   "borderColor": "#F4EFE6",
+   "borderWidth": 3
+  }
+ ],
+ "assets": [
+  "karate_kick.bin"
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "id": "chrono",
+ "version": 1,
+ "name": "Chronograph",
+ "author": "ClockHub",
+ "description": "Sporty dial with date, weekday and battery sub-dials.",
+ "background": {
+  "color": "#1C1C1E",
+  "color2": "#0A0A0A",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 228,
+   "length": 8,
+   "width": 2,
+   "color": "#636366",
+   "majorEvery": 5,
+   "majorLength": 20,
+   "majorWidth": 5,
+   "majorColor": "#FFFFFF"
+  },
+  {
+   "type": "numerals",
+   "style": "arabic",
+   "radius": 186,
+   "size": 20,
+   "color": "#AEAEB2"
+  },
+  {
+   "type": "circle",
+   "x": -82,
+   "y": 0,
+   "radius": 46,
+   "color": "#111111",
+   "borderColor": "#48484A",
+   "borderWidth": 2
+  },
+  {
+   "type": "text",
+   "text": "{battery}",
+   "x": -82,
+   "y": 0,
+   "size": 20,
+   "color": "#30D158"
+  },
+  {
+   "type": "circle",
+   "x": 82,
+   "y": 0,
+   "radius": 46,
+   "color": "#111111",
+   "borderColor": "#48484A",
+   "borderWidth": 2
+  },
+  {
+   "type": "text",
+   "text": "{dd}",
+   "x": 82,
+   "y": 0,
+   "size": 28,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "circle",
+   "x": 0,
+   "y": 86,
+   "radius": 40,
+   "color": "#111111",
+   "borderColor": "#48484A",
+   "borderWidth": 2
+  },
+  {
+   "type": "text",
+   "text": "{ddd}",
+   "x": 0,
+   "y": 86,
+   "size": 16,
+   "color": "#FF9F0A",
+   "upper": true
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 112,
+   "tail": 20,
+   "width": 10,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 176,
+   "tail": 20,
+   "width": 7,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 200,
+   "tail": 40,
+   "width": 3,
+   "color": "#FF9F0A"
+  },
+  {
+   "type": "circle",
+   "radius": 8,
+   "color": "#FF9F0A"
+  }
+ ]
+}

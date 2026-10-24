@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClockHub Installer</title>
+<meta name="description" content="Install ClockHub on a Waveshare ESP32-S3 1.75 inch round AMOLED board from your browser.">
+<script type="module" src="https://unpkg.com/esp-web-tools@10.4.0/dist/web/install-button.js?module"></script>
+<style>
+  :root { --bg: #f5f6f8; --card: #fff; --text: #14161a; --muted: #687080; --line: #e3e6eb; --accent: #0a6cff; --warn: #a15c00; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0c0e11; --card: #16191e; --text: #eef0f3; --muted: #9aa2ad; --line: #272b32; --accent: #3d8bff; --warn: #f0b04a; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: clamp(28px, 6vw, 40px); margin: 0 0 6px; letter-spacing: -.02em; }
+  .lead { color: var(--muted); margin: 0 0 28px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 99px; background: var(--line); color: var(--muted); margin-bottom: 14px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 18px; margin: 0 0 6px; }
+  .card p { margin: 0 0 14px; color: var(--muted); }
+  ol { padding-left: 20px; margin: 0; } li { margin: 6px 0; }
+  esp-web-install-button button[slot=activate] { font: inherit; font-weight: 700; padding: 12px 22px; border-radius: 12px; border: 0; background: var(--accent); color: #fff; cursor: pointer; }
+  esp-web-install-button.secondary button[slot=activate] { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+  .unsupported, .not-allowed { color: var(--warn); font-weight: 600; }
+  .note { font-size: 14px; color: var(--muted); }
+  code { font-family: ui-monospace, Consolas, monospace; font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">__EDITION__ &middot; version __VERSION__</span>
+  <h1>ClockHub Installer</h1>
+  <p class="lead">Turns a Waveshare ESP32-S3 1.75" round AMOLED board into ClockHub: clock faces, internet radio, SD card music, news, weather, calendar and more. Works in Chrome or Edge on a computer.</p>
+
+  <div class="card">
+    <h2>New watch</h2>
+    <p>Installs the app, its web page and every face in the gallery__FACES_NOTE__. Anything already on the board is erased.</p>
+    <esp-web-install-button manifest="manifest-new.json">
+      <button slot="activate">Install ClockHub</button>
+      <span slot="unsupported" class="unsupported">This browser can't reach USB devices. Please use Chrome or Edge on a computer.</span>
+      <span slot="not-allowed" class="not-allowed">USB access needs a secure (https) page.</span>
+    </esp-web-install-button>
+  </div>
+
+  <div class="card">
+    <h2>Update a ClockHub watch</h2>
+    <p>Installs the latest app but keeps the watch's Wi-Fi, settings and installed faces.</p>
+    <esp-web-install-button manifest="manifest-update.json" class="secondary">
+      <button slot="activate">Update app only</button>
+      <span slot="unsupported" class="unsupported">Use Chrome or Edge on a computer.</span>
+      <span slot="not-allowed" class="not-allowed">USB access needs a secure (https) page.</span>
+    </esp-web-install-button>
+  </div>
+
+  <div class="card">
+    <h2>How it works</h2>
+    <ol>
+      <li><b>Put the board in install mode:</b> unplug it, <b>hold the BOOT button</b>, plug it into this computer with a USB-C data cable, then let go. The screen stays dark; that's normal. Give Windows a few seconds to set it up.</li>
+      <li>Click a button above and pick <b>USB JTAG/serial debug unit</b> in the pop-up.</li>
+      <li>Wait while it installs (about 2 minutes for a new watch). Keep the cable plugged in.</li>
+      <li>When it says the installation is complete, unplug the board and plug it back in normally. ClockHub starts.</li>
+      <li>To set its Wi-Fi: click <b>Install ClockHub</b> again, pick the board (now shown as <b>ClockHub</b> or <b>USB Serial Device</b>) and choose <b>Connect to Wi-Fi</b>.</li>
+    </ol>
+    <p class="note" style="margin-top:14px">You can also update a watch that's already on Wi-Fi without a cable: open its web page, go to <b>System</b> and upload <code>firmware.bin</code>.</p>
+    <p class="note">The watch only joins 2.4 GHz Wi-Fi. If a rotary knob is wired to it, set its pins on the watch's web page under Settings &rarr; Rotary knob.</p>
+  </div>
+</main>
+</body>
+</html>

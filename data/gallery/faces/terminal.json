@@ -1,0 +1,68 @@
+{
+ "id": "terminal",
+ "version": 1,
+ "name": "Terminal",
+ "author": "ClockHub",
+ "description": "Green-screen console look.",
+ "background": {
+  "color": "#020702"
+ },
+ "elements": [
+  {
+   "type": "text",
+   "text": "clockhub:~$ date",
+   "x": -150,
+   "y": -110,
+   "size": 16,
+   "color": "#1F9E3D",
+   "align": "left"
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {yyyy}-{MM}-{dd}",
+   "x": -150,
+   "y": -78,
+   "size": 20,
+   "color": "#33FF66",
+   "align": "left"
+  },
+  {
+   "type": "text",
+   "text": "{HH}:{mm}:{ss}",
+   "x": -150,
+   "y": -20,
+   "size": 48,
+   "color": "#33FF66",
+   "align": "left"
+  },
+  {
+   "type": "text",
+   "text": "clockhub:~$ now-playing",
+   "x": -150,
+   "y": 40,
+   "size": 16,
+   "color": "#1F9E3D",
+   "align": "left"
+  },
+  {
+   "type": "text",
+   "text": "{np}",
+   "x": -150,
+   "y": 70,
+   "size": 20,
+   "color": "#33FF66",
+   "align": "left",
+   "width": 300,
+   "marquee": true
+  },
+  {
+   "type": "text",
+   "text": "batt {battery}  _",
+   "x": -150,
+   "y": 110,
+   "size": 16,
+   "color": "#1F9E3D",
+   "align": "left"
+  }
+ ]
+}

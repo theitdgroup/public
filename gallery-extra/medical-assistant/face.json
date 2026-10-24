@@ -1,0 +1,115 @@
+{
+ "id": "medical-assistant",
+ "version": 1,
+ "name": "Medical Assistant",
+ "author": "ClockHub",
+ "description": "Scrubs-teal dial with a heart-shaped stethoscope over a heartbeat line, MEDICAL ASSISTANT lettering and a red second hand.",
+ "background": {
+  "color": "#138A87",
+  "color2": "#0A5F5D",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "circle",
+   "radius": 231,
+   "color": "none",
+   "borderColor": "#FFFFFF",
+   "borderWidth": 3
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 224,
+   "length": 6,
+   "width": 2,
+   "color": "#8CC9C6",
+   "majorEvery": 5,
+   "majorLength": 16,
+   "majorWidth": 5,
+   "majorColor": "#FFFFFF",
+   "round": true
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -182,
+   "size": 16,
+   "color": "#FFFFFF",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "image",
+   "src": "medical-assistant_steth.bin",
+   "x": 0,
+   "y": -12
+  },
+  {
+   "type": "text",
+   "text": "MEDICAL ASSISTANT",
+   "x": 0,
+   "y": 146,
+   "size": 16,
+   "color": "#FFFFFF",
+   "letterSpacing": 2
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": 178,
+   "size": 20,
+   "color": "#BFE6E3"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 102,
+   "tail": 14,
+   "width": 12,
+   "color": "#06504E"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 100,
+   "tail": 12,
+   "width": 6,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 166,
+   "tail": 14,
+   "width": 10,
+   "color": "#06504E"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 164,
+   "tail": 12,
+   "width": 4,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 190,
+   "tail": 30,
+   "width": 3,
+   "color": "#E63946",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 8,
+   "color": "#E63946",
+   "borderColor": "#FFFFFF",
+   "borderWidth": 2
+  }
+ ]
+}

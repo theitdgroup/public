@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClockHub</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="bar"><div class="logo"><i></i>ClockHub</div><div class="pill" id="pill">Connecting...</div></div>
+  <nav id="nav">
+    <button data-tab="music" class="on">Music</button>
+    <button data-tab="faces">My faces</button>
+    <button data-tab="gallery">Face gallery</button>
+    <button data-tab="designer">Designer</button>
+    <button data-tab="news">News</button>
+    <button data-tab="photos">Photos</button>
+    <button data-tab="alarms">Alarms</button>
+    <button data-tab="message">Message</button>
+    <button data-tab="settings">Settings</button>
+    <button data-tab="system">System</button>
+  </nav>
+</header>
+<main>
+
+<!-- MUSIC -->
+<section id="music" class="on">
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <div class="seg" id="srcSeg">
+        <button data-src="radio">Radio</button><button data-src="sd">SD card</button>
+      </div>
+      <div class="row grow" style="max-width:280px"><span class="muted">Vol</span><input type="range" id="vol" min="0" max="21"></div>
+    </div>
+    <div class="np" id="np" style="margin-top:16px">
+      <div class="disc"></div>
+      <div style="min-width:0"><div class="t" id="npTitle">Not playing</div><div class="a" id="npArtist"></div><div class="muted" id="npInfo"></div></div>
+    </div>
+    <div class="ctl">
+      <button class="b" data-cmd="prev" title="Previous">&#9198;</button>
+      <button class="b p" data-cmd="toggle" id="playBtn" title="Play/pause">&#9654;</button>
+      <button class="b" data-cmd="next" title="Next">&#9197;</button>
+    </div>
+  </div>
+
+  <div class="card" id="radioCard">
+    <h3>Radio stations</h3>
+    <div class="list" id="stations"></div>
+    <div class="row" style="margin-top:12px">
+      <input type="text" id="stName" placeholder="Name" class="grow">
+      <input type="url" id="stUrl" placeholder="Stream URL (http://...mp3 / aac / m3u)" class="grow">
+      <button class="b" id="stAdd">Add</button>
+    </div>
+    <details style="margin-top:14px"><summary>Find stations online</summary>
+      <div class="row" style="margin-top:8px"><input type="text" id="rbQ" placeholder="Search by name, genre or country (e.g. jazz, BBC, KEXP)" class="grow"><button class="b" id="rbGo">Search</button></div>
+      <div class="muted">Uses the free radio-browser.info directory. Needs internet on this computer.</div>
+      <div class="list" id="rbResults"></div>
+    </details>
+  </div>
+
+  <div class="card" id="sdCard">
+    <h3>SD card music</h3>
+    <div class="muted" id="sdInfo"></div>
+    <div class="list" id="tracks"></div>
+    <div class="row" style="margin-top:12px">
+      <input type="file" id="musicFiles" multiple accept=".mp3,.m4a,.aac,.flac,.wav,.ogg,.opus,audio/*" class="grow">
+      <button class="b" id="musicUp">Upload to /music</button>
+      <button class="b" id="rescan">Rescan card</button>
+    </div>
+    <div class="progress"><div id="musicProg"></div></div>
+    <details style="margin-top:14px" open><summary>Open the card in File Explorer</summary>
+      <p><b>Over USB:</b> plug the watch into your PC, then <button class="b sm" id="usbOn">Open as USB drive</button>
+        <span class="muted" id="usbState"></span><br>
+        <span class="muted">The card appears as a new drive. Music pauses while it's open. Eject the drive in Windows (or tap Done on the watch) when finished.</span></p>
+      <p><b>Over Wi-Fi:</b> in File Explorer, right-click <b>This PC</b> &rarr; <b>Map network drive</b>, and use the folder
+        <code id="davUrl"></code>. <span class="muted">Music keeps playing. Windows needs its "WebClient" service running (it usually is).</span></p>
+    </details>
+  </div>
+
+</section>
+
+<!-- FACES -->
+<section id="faces">
+  <div class="row" style="justify-content:space-between"><h2>My faces</h2>
+    <div class="row"><input type="file" id="faceFile" accept=".json,.orb,application/json" hidden><button class="b" onclick="faceFile.click()">Upload face file</button>
+    <button class="b p" onclick="showTab('gallery')">Get more faces</button></div></div>
+  <p class="muted">Faces installed on the watch. Upload a ClockHub <code>.json</code> face or an <code>.orb</code> theme (its clock face is imported). Tap <b>Use</b> to show one. On the watch you can also long-press the clock to switch faces.</p>
+  <div class="grid" id="faceGrid"></div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <h2>Face gallery</h2>
+  <p class="muted">Browse face templates and install them on the watch in one tap, or download the file to share or edit.</p>
+  <div class="card">
+    <div class="row"><select id="galSel" class="grow"></select><button class="b" id="galReload">Reload</button></div>
+    <details style="margin-top:10px"><summary>Add a gallery</summary>
+      <div class="row" style="margin-top:8px"><input type="url" id="galUrl" placeholder="https://example.github.io/clockhub-faces/index.json" class="grow"><button class="b" id="galAdd">Add</button></div>
+      <div class="muted">Any website hosting an <code>index.json</code> catalog works (see <code>gallery-site/</code> in the project to publish your own).</div>
+    </details>
+  </div>
+  <div class="err" id="galErr"></div>
+  <div class="grid" id="galGrid"></div>
+</section>
+
+<!-- DESIGNER -->
+<section id="designer">
+  <h2>Face designer</h2>
+  <div class="designer">
+    <div>
+      <canvas id="dCanvas" width="466" height="466"></canvas>
+      <div class="row" style="margin-top:16px"><span class="muted">Preview time</span><input type="range" id="dTime" min="0" max="1439" class="grow"><label class="muted"><input type="checkbox" id="dLive" checked> live</label></div>
+      <div class="err" id="dErr"></div>
+      <div class="row">
+        <button class="b p" id="dSave">Save to watch &amp; use</button>
+        <button class="b" id="dDownload">Download</button>
+      </div>
+      <details style="margin-top:16px"><summary>Element &amp; token reference</summary>
+        <table class="ref">
+          <tr><td><b>ticks</b></td><td>count, radius, length, width, color, majorEvery, majorLength, majorWidth, majorColor, round, skipMajor</td></tr>
+          <tr><td><b>numerals</b></td><td>style: arabic | roman | quarters | quarters-roman; radius, size, color</td></tr>
+          <tr><td><b>hand</b></td><td>hand: hour | minute | second; length, tail, width, color, round, smooth</td></tr>
+          <tr><td><b>text</b></td><td>text (tokens below), x, y, size (12-48 native, larger is scaled), color, align: left | center | right, width, wrap, marquee, upper, letterSpacing</td></tr>
+          <tr><td><b>arc</b></td><td>value: seconds | minutes | hours | battery | dayOfWeek | dayOfMonth | month | dayOfYear | volume | none; radius, width, color, bgColor, startAngle (0 = 12 o'clock), sweep, round, x, y</td></tr>
+          <tr><td><b>circle</b></td><td>x, y, radius, color, borderColor, borderWidth</td></tr>
+          <tr><td><b>rect</b></td><td>x, y, w, h, radius, color, borderColor, borderWidth</td></tr>
+          <tr><td><b>plate</b></td><td>frames (list of .bin images, first is the resting dial), fps, everySec (how often the animation plays), x, y</td></tr>
+          <tr><td><b>imagehand</b></td><td>hand: hour | minute | second; src (.bin image pointing at 12), pivotX, pivotY (pivot inside the image), x, y (where the pivot sits), smooth, opacity</td></tr>
+          <tr><td><b>weathericon</b></td><td>x, y, size: large | small - the current weather picture</td></tr>
+          <tr><td><b>image</b></td><td>src (file in /faces/assets, PNG or JPG), x, y, scale (256 = 100%), opacity</td></tr>
+          <tr><td><b>tokens</b></td><td class="mono">{time} {hour} {HH} {H} {hh} {h} {mm} {ss} {AMPM} {ampm} {ampm?} {dddd} {ddd} {dd} {d} {MMMM} {MMM} {MM} {M} {yyyy} {yy} {battery} {charging} {wifi} {title} {artist} {station} {np} {headline} {headlineSource} {temp} {tempHi} {tempLo} {weather} {city} {nextAlarm} {countdown}</td></tr>
+        </table>
+        <p class="muted">Coordinates are pixels from the centre of the 466 x 466 screen (x right, y down). Colours are #RGB, #RRGGBB, #RRGGBBAA or "none".</p>
+      </details>
+    </div>
+    <div>
+      <div class="row" style="margin-bottom:8px">
+        <select id="dLoad" class="grow"><option value="">Start from...</option></select>
+        <select id="dAdd"><option value="">+ Add element</option><option>ticks</option><option>numerals</option><option>hand</option><option>text</option><option>arc</option><option>circle</option><option>rect</option><option>image</option></select>
+        <button class="b" id="dFormat">Tidy</button>
+      </div>
+      <textarea id="dJson" spellcheck="false"></textarea>
+      <div class="row" style="margin-top:8px"><input type="file" id="dAsset" accept="image/png,image/jpeg" class="grow"><button class="b" id="dAssetUp">Upload image asset</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news">
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h3>News sources</h3>
+        <div class="list" id="feeds"></div>
+        <div class="row" style="margin-top:12px">
+          <input type="text" id="fdName" placeholder="Name" style="max-width:140px">
+          <input type="url" id="fdUrl" placeholder="RSS or Atom feed URL" class="grow">
+          <button class="b" id="fdAdd">Add</button>
+        </div>
+        <details style="margin-top:12px"><summary>Popular feeds</summary><div class="list" id="feedSuggest"></div></details>
+      </div>
+      <div class="card">
+        <h3>Topics</h3>
+        <p class="muted">Each topic adds a Google News search, so you can follow anything (e.g. "Formula 1", "Manchester", "AI").</p>
+        <div class="chips" id="topics"></div>
+        <div class="row"><input type="text" id="tpNew" placeholder="Add a topic" class="grow"><button class="b" id="tpAdd">Add</button></div>
+        <label class="f">Refresh every (minutes)</label><input type="number" id="newsMin" min="5" max="240">
+      </div>
+      <div class="row"><button class="b p" id="newsSave">Save news settings</button><button class="b" id="newsNow">Refresh now</button><span class="ok" id="newsMsg"></span></div>
+    </div>
+    <div class="card">
+      <h3>Latest headlines</h3><div class="muted" id="newsStatus"></div>
+      <div class="list" id="headlines" style="max-height:760px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section id="photos">
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h3>Add photos</h3>
+        <p class="muted">Pictures are resized for the round screen here in your browser before uploading.</p>
+        <label class="f">Fit</label>
+        <div class="seg" id="phFit"><button data-fit="fill" class="on">Fill the circle (crop edges)</button><button data-fit="fit">Show whole picture</button></div>
+        <label class="f">Save to</label>
+        <div class="seg" id="phDest"><button data-to="flash" class="on">Watch</button><button data-to="sd">SD card</button></div>
+        <div class="row" style="margin-top:12px"><input type="file" id="phFiles" multiple accept="image/*" class="grow"><button class="b p" id="phUp">Upload</button></div>
+        <div class="progress"><div id="phProg"></div></div>
+        <div class="muted" id="phSpace" style="margin-top:8px"></div>
+      </div>
+      <div class="card">
+        <h3>Slideshow</h3>
+        <label class="f">Show each photo for (seconds)</label><input type="number" id="phSecs" min="2" max="3600">
+        <label class="f"><input type="checkbox" id="phShuffle"> Shuffle</label>
+        <label class="f"><input type="checkbox" id="phFrame"> Photo-frame mode: when the watch is idle, show the slideshow instead of the clock</label>
+        <div class="row" style="margin-top:12px"><button class="b p" id="phSave">Save</button><span class="ok" id="phMsg"></span></div>
+        <p class="muted">On the watch, the Photos screen is between News and Settings. Tap it (or press the knob) for the next photo.</p>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Photos on the watch</h3>
+      <div class="grid" id="phGrid" style="grid-template-columns:repeat(auto-fill,minmax(110px,1fr))"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALARMS -->
+<section id="alarms">
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h3>Alarms</h3>
+        <div class="list" id="alList"></div>
+        <div class="row" style="margin-top:12px"><button class="b" id="alAdd">+ Add alarm</button></div>
+        <label class="f">Alarm and timer volume</label>
+        <div class="row"><input type="range" id="chimeVol" min="1" max="21" class="grow"><button class="b sm" id="chimeTest">Test chime</button><button class="b sm" id="reveilleTest">Test reveille</button></div>
+        <label class="f">Snooze for (minutes)</label><input type="number" id="snoozeMin" min="1" max="30">
+        <div class="row" style="margin-top:12px"><button class="b p" id="alSave">Save alarms</button><span class="ok" id="alMsg"></span></div>
+        <p class="muted">On the watch: press the knob to stop an alarm, hold it to snooze. The Timer screen has a kitchen timer, and the Music screen's zZ button turns the radio off after 15-90 minutes.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Night mode</h3>
+        <label class="f"><input type="checkbox" id="nightOn"> Dim the screen at night</label>
+        <div class="row">
+          <div class="grow"><label class="f">From</label><input type="time" id="nightStart"></div>
+          <div class="grow"><label class="f">Until</label><input type="time" id="nightEnd"></div>
+        </div>
+        <label class="f">Night brightness <span class="muted" id="nightBriV"></span></label><input type="range" id="nightBri" min="0" max="120">
+        <div class="row" style="margin-top:12px"><button class="b p" id="nightSave">Save</button><span class="ok" id="nightMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Countdowns</h3>
+        <p class="muted">Shown on the watch's Today screen (and the {countdown} face token).</p>
+        <div class="list" id="cdList"></div>
+        <div class="row" style="margin-top:10px">
+          <input type="text" id="cdName" placeholder="What (e.g. Vacation)" class="grow">
+          <input type="date" id="cdDate">
+          <button class="b" id="cdAdd">Add</button>
+        </div>
+        <div class="row" style="margin-top:12px"><button class="b p" id="cdSave">Save</button><span class="ok" id="cdMsg"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+  <div class="card" style="max-width:560px">
+    <h3>Send a message to the watch</h3>
+    <p class="muted">It pops up on the watch with a chime. Press the knob or tap OK to dismiss it.</p>
+    <label class="f">From</label><input type="text" id="msgFrom" placeholder="Your name" autocomplete="off">
+    <label class="f">Message</label><textarea id="msgText" style="min-height:90px;font:inherit" maxlength="300" placeholder="Dinner's ready!"></textarea>
+    <label class="f">Photo (optional)</label><input type="file" id="msgPhoto" accept="image/*">
+    <div class="row" style="margin-top:12px"><button class="b p" id="msgSend">Send</button><span class="ok" id="msgMsg"></span></div>
+  </div>
+</section>
+
+<!-- SETTINGS -->
+<section id="settings">
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h3>Wi-Fi</h3>
+        <p class="muted">The watch joins the first network in this list that's in range. Use &uarr; to change the order.</p>
+        <div class="list" id="wifiList"></div>
+        <div class="row" style="margin-top:10px">
+          <select id="wfSsidSel" class="grow"><option value="">Choose network...</option></select>
+          <button class="b" id="wfScan">Scan</button>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <input type="text" id="wfSsid" placeholder="Network name" class="grow" autocomplete="off" spellcheck="false">
+          <input type="password" id="wfPass" placeholder="Password" class="grow" autocomplete="new-password">
+          <button class="b" id="wfAdd">Add</button>
+        </div>
+        <label class="f">Device name</label><input type="text" id="hostname" autocomplete="off" spellcheck="false">
+        <div class="muted">The watch will be at http://<i>name</i>.local</div>
+        <div class="row" style="margin-top:12px"><button class="b p" id="wifiSave">Save &amp; reconnect</button><span class="ok" id="wifiMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Time</h3>
+        <label class="f">Time zone</label>
+        <div class="row"><select id="tzSel" class="grow"></select><button class="b" id="tzDetect">Use this computer's</button></div>
+        <label class="f">POSIX TZ string (advanced)</label><input type="text" id="tz" class="mono">
+        <label class="f">NTP server</label><input type="text" id="ntp">
+        <label class="f"><input type="checkbox" id="h24"> 24-hour clock</label>
+        <div class="row" style="margin-top:12px"><button class="b p" id="timeSave">Save</button><span class="ok" id="timeMsg"></span></div>
+      </div>
+    </div>
+    <div>
+      <div class="card">
+        <h3>Weather</h3>
+        <div class="row"><input type="text" id="wxSearch" placeholder="Town or city, e.g. Austin" class="grow" autocomplete="off"><button class="b" id="wxFind">Find</button></div>
+        <div class="list" id="wxResults"></div>
+        <div class="muted" id="wxNow" style="margin-top:8px"></div>
+        <label class="f">Units</label>
+        <div class="seg" id="wxUnits"><button data-u="F">&deg;F</button><button data-u="C">&deg;C</button></div>
+        <div class="row" style="margin-top:12px"><button class="b p" id="wxSave">Save</button><span class="ok" id="wxMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Screens on the watch</h3>
+        <p class="muted">Tick the screens you want and use &uarr; to change their order. The clock is always first. Changes apply after a restart.</p>
+        <div class="list" id="scrList"></div>
+        <div class="row" style="margin-top:12px"><button class="b p" id="scrSave">Save &amp; restart watch</button><span class="ok" id="scrMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Bible verse</h3>
+        <p class="muted">The Bible screen shows Bible Gateway's Verse of the Day. Tap it, or press the knob, for a random verse from the watch's own list (King James). Turn the screen on above under <b>Screens on the watch</b>.</p>
+        <label class="f">Show</label>
+        <select id="bibMode"><option value="daily">Verse of the day (a new one each morning)</option><option value="random">A random verse, changing on its own</option></select>
+        <div id="bibVerRow"><label class="f">Translation for Verse of the Day</label>
+        <select id="bibVer"><option value="KJV">King James Version (KJV)</option><option value="NKJV">New King James Version (NKJV)</option><option value="NIV">New International Version (NIV)</option><option value="ESV">English Standard Version (ESV)</option><option value="NLT">New Living Translation (NLT)</option><option value="NASB">New American Standard Bible (NASB)</option><option value="CSB">Christian Standard Bible (CSB)</option><option value="AMP">Amplified Bible (AMP)</option><option value="MSG">The Message (MSG)</option></select></div>
+        <div id="bibMinsRow"><label class="f">Change every (minutes)</label><input type="number" id="bibMins" min="1" max="1440"></div>
+        <div class="row" style="margin-top:12px"><button class="b p" id="bibSave">Save</button><span class="ok" id="bibMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Calendar</h3>
+        <p class="muted">Add your calendar's private iCal link (it ends in .ics). Google: Calendar settings &rarr; your calendar &rarr; "Secret address in iCal format". Outlook: Settings &rarr; Shared calendars &rarr; Publish &rarr; ICS. iPhone/iCloud: share the calendar as a Public Calendar and copy the link.</p>
+        <div class="list" id="calList"></div>
+        <div class="row" style="margin-top:10px">
+          <input type="text" id="calName" placeholder="Name (e.g. Family)" style="max-width:150px" autocomplete="off">
+          <input type="url" id="calUrl" placeholder="https://.../basic.ics" class="grow" autocomplete="off">
+          <button class="b" id="calAdd">Add</button>
+        </div>
+        <label class="f">Remind me before events (minutes, 0 = off)</label><input type="number" id="calRemind" min="0" max="120">
+        <div class="row" style="margin-top:12px"><button class="b p" id="calSave">Save</button><span class="ok" id="calMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Sports</h3>
+        <div class="row">
+          <select id="sportLeague" class="grow">
+            <option value="football/nfl">NFL</option><option value="football/college-football">College football</option>
+            <option value="basketball/nba">NBA</option><option value="basketball/wnba">WNBA</option>
+            <option value="basketball/mens-college-basketball">Men's college basketball</option><option value="basketball/womens-college-basketball">Women's college basketball</option>
+            <option value="baseball/mlb">MLB</option><option value="hockey/nhl">NHL</option><option value="soccer/usa.1">MLS</option>
+            <option value="volleyball/womens-college-volleyball">Women's college volleyball</option>
+          </select>
+          <button class="b" id="sportLoad">Show teams</button>
+        </div>
+        <div class="row" style="margin-top:8px"><select id="sportTeam" class="grow" disabled><option>Choose a league first</option></select><button class="b" id="sportAdd" disabled>Add</button></div>
+        <div class="list" id="sportList" style="margin-top:10px"></div>
+        <label class="f"><input type="checkbox" id="sportAlerts"> Pop up when my team's game starts and ends</label>
+        <div class="row" style="margin-top:12px"><button class="b p" id="sportSave">Save</button><span class="ok" id="sportMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Display</h3>
+        <label class="f">Brightness <span id="briV" class="muted"></span></label><input type="range" id="bri" min="10" max="255">
+        <label class="f">Dim to <span id="dimV" class="muted"></span></label><input type="range" id="dimBri" min="0" max="255">
+        <div class="row">
+          <div class="grow"><label class="f">Dim after (seconds, 0 = never)</label><input type="number" id="dimAfter" min="0"></div>
+          <div class="grow"><label class="f">Screen off after (seconds, 0 = never)</label><input type="number" id="offAfter" min="0"></div>
+        </div>
+        <label class="f"><input type="checkbox" id="pixelShift"> Burn-in protection (shift the face slightly every minute)</label>
+        <div class="row" style="margin-top:12px"><button class="b p" id="dispSave">Save</button><span class="ok" id="dispMsg"></span></div>
+      </div>
+      <div class="card">
+        <h3>Rotary knob (KY-040)</h3>
+        <p class="muted">Wired to the 8-pin header. <b>Turn</b> to move between Clock, Music, News and Settings. <b>Press</b>: next face (Clock), play/pause (Music), scroll headlines (News), brightness (Settings). <b>Hold</b> on Music for volume. In scroll/volume/brightness mode, press again to go back to changing screens.</p>
+        <label class="f"><input type="checkbox" id="encOn"> Knob connected</label>
+        <div class="row">
+          <div class="grow"><label class="f">CLK pin</label><select id="encA"></select></div>
+          <div class="grow"><label class="f">DT pin</label><select id="encB"></select></div>
+          <div class="grow"><label class="f">SW pin</label><select id="encBtn"></select></div>
+        </div>
+        <label class="f"><input type="checkbox" id="encRev"> Reverse direction</label>
+        <label class="f">Clicks per step</label>
+        <select id="encSteps"><option value="4">1 step per click (most KY-040)</option><option value="2">1 step per half click</option><option value="1">Every pulse</option></select>
+        <div class="row" style="margin-top:12px"><button class="b p" id="encSave">Save</button><span class="ok" id="encMsg"></span></div>
+        <details id="knobTest" style="margin-top:14px"><summary>Knob test (live)</summary>
+          <p class="muted">Turn or press the knob and watch the values. At rest all three read <b>high</b>; turning should flick CLK and DT to <b>low</b>, pressing makes SW <b>low</b>. If nothing ever changes, the knob's GND wire isn't connected.</p>
+          <table class="ref" id="knobLive"></table>
+          <div class="row" style="margin-top:8px"><button class="b sm" id="knobWire">Check wiring</button><span class="muted" id="knobWireMsg"></span></div>
+        </details>
+      </div>
+      <div class="card">
+        <h3>Web page password</h3>
+        <p class="muted">Optional. When set, this page asks for user <b>admin</b> and this password.</p>
+        <input type="password" id="adminPass" placeholder="Leave empty for no password">
+        <div class="row" style="margin-top:12px"><button class="b p" id="pwSave">Save</button><span class="ok" id="pwMsg"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM -->
+<section id="system">
+  <div class="cols">
+    <div class="card"><h3>Status</h3><table class="ref" id="sysTable"></table></div>
+    <div>
+      <div class="card">
+        <h3>Update</h3>
+        <p class="muted">Upload <code>firmware.bin</code> (from <code>.pio/build/clockhub/</code>) to update the watch over Wi-Fi. Upload <code>littlefs.bin</code> to update the web page and built-in faces. Updating the web page replaces the file system, so it also clears your settings and installed faces.</p>
+        <div class="row"><input type="file" id="fwFile" accept=".bin" class="grow"><button class="b" id="fwUp">Update firmware</button></div>
+        <div class="row" style="margin-top:8px"><input type="file" id="fsFile" accept=".bin" class="grow"><button class="b" id="fsUp">Update web page / faces</button></div>
+        <div class="progress"><div id="otaProg"></div></div>
+      </div>
+      <div class="card"><h3>Device</h3><div class="row"><button class="b" id="cfgExport">Download settings (no passwords)</button><button class="b d" id="reboot">Restart watch</button></div></div>
+    </div>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast"></div>
+<script src="face-render.js"></script>
+<script src="orb-import.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

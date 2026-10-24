@@ -1,0 +1,68 @@
+{
+ "id": "newsdesk",
+ "version": 1,
+ "name": "News Desk",
+ "author": "ClockHub",
+ "description": "Time, date, rotating headlines and the current song.",
+ "background": {
+  "color": "#000000",
+  "color2": "#0D1B2A",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": -88,
+   "size": 72,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "text",
+   "text": "{dddd} {d} {MMMM}",
+   "x": 0,
+   "y": -30,
+   "size": 20,
+   "color": "#8E8E93"
+  },
+  {
+   "type": "rect",
+   "x": 0,
+   "y": 6,
+   "w": 300,
+   "h": 2,
+   "color": "#2C2C2E"
+  },
+  {
+   "type": "text",
+   "text": "{headlineSource}",
+   "x": 0,
+   "y": 34,
+   "size": 14,
+   "color": "#0A84FF",
+   "upper": true,
+   "letterSpacing": 1
+  },
+  {
+   "type": "text",
+   "text": "{headline}",
+   "x": 0,
+   "y": 92,
+   "size": 20,
+   "color": "#F2F2F7",
+   "width": 330,
+   "wrap": true
+  },
+  {
+   "type": "text",
+   "text": "{np}",
+   "x": 0,
+   "y": 176,
+   "size": 16,
+   "color": "#1DB954",
+   "width": 220,
+   "marquee": true
+  }
+ ]
+}

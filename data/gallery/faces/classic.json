@@ -1,0 +1,84 @@
+{
+ "id": "classic",
+ "version": 1,
+ "name": "Classic",
+ "author": "ClockHub",
+ "description": "Analog dial with a sweeping second hand and date window.",
+ "background": {
+  "color": "#0B1220",
+  "color2": "#000000",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 226,
+   "length": 10,
+   "width": 2,
+   "color": "#4A5568",
+   "majorEvery": 5,
+   "majorLength": 26,
+   "majorWidth": 6,
+   "majorColor": "#F5F5F7",
+   "round": true
+  },
+  {
+   "type": "numerals",
+   "style": "arabic",
+   "radius": 170,
+   "size": 32,
+   "color": "#E2E8F0"
+  },
+  {
+   "type": "rect",
+   "x": 0,
+   "y": 82,
+   "w": 112,
+   "h": 40,
+   "radius": 20,
+   "color": "#1A2333"
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d}",
+   "x": 0,
+   "y": 82,
+   "size": 20,
+   "color": "#F6AD55",
+   "upper": true
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 110,
+   "tail": 18,
+   "width": 12,
+   "color": "#F5F5F7"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 170,
+   "tail": 18,
+   "width": 8,
+   "color": "#F5F5F7"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 190,
+   "tail": 36,
+   "width": 3,
+   "color": "#F6AD55",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 10,
+   "color": "#F6AD55",
+   "borderColor": "#0B1220",
+   "borderWidth": 3
+  }
+ ]
+}

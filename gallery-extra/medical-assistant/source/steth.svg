@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <!-- heartbeat line behind -->
+  <polyline points="0,168 70,168 88,168 100,140 112,196 126,110 140,214 152,168 300,168"
+            fill="none" stroke="#FFFFFF" stroke-opacity="0.55" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  <!-- ear tips and binaurals -->
+  <circle cx="102" cy="34" r="9" fill="#FFFFFF"/>
+  <circle cx="198" cy="34" r="9" fill="#FFFFFF"/>
+  <path d="M102 40 C96 70 98 92 116 104" fill="none" stroke="#E8F4F3" stroke-width="7" stroke-linecap="round"/>
+  <path d="M198 40 C204 70 202 92 184 104" fill="none" stroke="#E8F4F3" stroke-width="7" stroke-linecap="round"/>
+  <!-- tubing shaped as a heart -->
+  <path d="M116 104 C70 96 52 150 82 186 C104 212 132 230 150 252 C168 230 196 212 218 186 C248 150 230 96 184 104"
+        fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M116 104 Q150 120 184 104" fill="none" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round"/>
+  <!-- tube down to the chest piece -->
+  <path d="M150 252 C150 268 168 274 190 262 C214 248 226 236 232 222" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+  <!-- chest piece with a red heart -->
+  <circle cx="240" cy="206" r="26" fill="#DDEBEA" stroke="#FFFFFF" stroke-width="5"/>
+  <circle cx="240" cy="206" r="17" fill="#C9DCDA"/>
+  <path d="M240 216 C228 207 226 199 231 195 C235 192 239 194 240 198 C241 194 245 192 249 195 C254 199 252 207 240 216 Z" fill="#E63946"/>
+</svg>

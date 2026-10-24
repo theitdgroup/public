@@ -1,0 +1,108 @@
+{
+ "id": "volleyball",
+ "version": 2,
+ "name": "Volleyball",
+ "author": "ClockHub",
+ "description": "Deep blue dial with a volleyball that spins once a minute, orange hands and the date, with a yellow second hand.",
+ "background": {
+  "color": "#0B2A5B",
+  "color2": "#041330",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "circle",
+   "radius": 231,
+   "color": "none",
+   "borderColor": "#FFD200",
+   "borderWidth": 3
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 224,
+   "length": 7,
+   "width": 2,
+   "color": "#3A5C94",
+   "majorEvery": 5,
+   "majorLength": 18,
+   "majorWidth": 5,
+   "majorColor": "#FFFFFF",
+   "round": true
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -162,
+   "size": 16,
+   "color": "#FFD200",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "imagehand",
+   "hand": "second",
+   "src": "volleyball_panels.bin",
+   "pivotX": 120,
+   "pivotY": 120,
+   "x": 0,
+   "y": 0
+  },
+  {
+   "type": "image",
+   "src": "volleyball_shade.bin",
+   "x": 0,
+   "y": 0
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": 164,
+   "size": 24,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 96,
+   "tail": 16,
+   "width": 10,
+   "color": "#FF6B1A"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 160,
+   "tail": 16,
+   "width": 7,
+   "color": "#FF6B1A"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 192,
+   "tail": 30,
+   "width": 5,
+   "color": "#0B2A5B",
+   "smooth": true
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 190,
+   "tail": 28,
+   "width": 3,
+   "color": "#FFD200",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 8,
+   "color": "#FF6B1A",
+   "borderColor": "#0B2A5B",
+   "borderWidth": 3
+  }
+ ]
+}

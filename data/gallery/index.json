@@ -1,0 +1,150 @@
+{
+ "name": "ClockHub Faces",
+ "version": 1,
+ "faces": [
+  {
+   "id": "classic",
+   "name": "Classic",
+   "author": "ClockHub",
+   "description": "Analog dial with a sweeping second hand and date window.",
+   "file": "faces/classic.json",
+   "assets": []
+  },
+  {
+   "id": "digital",
+   "name": "Big Digital",
+   "author": "ClockHub",
+   "description": "Large time, full date and a seconds ring.",
+   "file": "faces/digital.json",
+   "assets": []
+  },
+  {
+   "id": "newsdesk",
+   "name": "News Desk",
+   "author": "ClockHub",
+   "description": "Time, date, rotating headlines and the current song.",
+   "file": "faces/newsdesk.json",
+   "assets": []
+  },
+  {
+   "id": "neon-rings",
+   "name": "Neon Rings",
+   "author": "ClockHub",
+   "description": "Hours, minutes and seconds as glowing rings.",
+   "file": "faces/neon-rings.json",
+   "assets": []
+  },
+  {
+   "id": "roman-gold",
+   "name": "Roman Gold",
+   "author": "ClockHub",
+   "description": "Dress watch with gold Roman numerals.",
+   "file": "faces/roman-gold.json",
+   "assets": []
+  },
+  {
+   "id": "chrono",
+   "name": "Chronograph",
+   "author": "ClockHub",
+   "description": "Sporty dial with date, weekday and battery sub-dials.",
+   "file": "faces/chrono.json",
+   "assets": []
+  },
+  {
+   "id": "sunset",
+   "name": "Sunset",
+   "author": "ClockHub",
+   "description": "Warm gradient with a clean digital time.",
+   "file": "faces/sunset.json",
+   "assets": []
+  },
+  {
+   "id": "terminal",
+   "name": "Terminal",
+   "author": "ClockHub",
+   "description": "Green-screen console look.",
+   "file": "faces/terminal.json",
+   "assets": []
+  },
+  {
+   "id": "astrology",
+   "name": "Astrology",
+   "author": "ClockHub",
+   "description": "A gold zodiac wheel with the twelve signs at the hours, on a purple starry sky with constellations and a soft nebula glow.",
+   "file": "faces/astrology.json",
+   "assets": [
+    "astrology_dial.bin"
+   ]
+  },
+  {
+   "id": "ballerina",
+   "name": "Ballerina",
+   "author": "ClockHub",
+   "description": "A ballerina en pointe pirouettes on a little music-box stage, on a deep plum dial with gold markers and sparkles.",
+   "file": "faces/ballerina.json",
+   "assets": [
+    "ballerina_spin0.bin",
+    "ballerina_spin1.bin",
+    "ballerina_spin2.bin",
+    "ballerina_spin3.bin",
+    "ballerina_spin4.bin",
+    "ballerina_spin5.bin",
+    "ballerina_spin6.bin",
+    "ballerina_spin7.bin"
+   ]
+  },
+  {
+   "id": "flag-football",
+   "name": "Flag Football",
+   "author": "ClockHub",
+   "description": "Turf field with yard lines, a football over crossed red and blue flags, and a red flag second hand.",
+   "file": "faces/flag-football.json",
+   "assets": [
+    "flag-football_ball.bin",
+    "flag-football_flag.bin"
+   ]
+  },
+  {
+   "id": "karate",
+   "name": "Karate",
+   "author": "ClockHub",
+   "description": "Rice-paper dial with a karate high kick on a red rising sun.",
+   "file": "faces/karate.json",
+   "assets": [
+    "karate_kick.bin"
+   ]
+  },
+  {
+   "id": "medical-assistant",
+   "name": "Medical Assistant",
+   "author": "ClockHub",
+   "description": "Scrubs-teal dial with a heart-shaped stethoscope over a heartbeat line, MEDICAL ASSISTANT lettering and a red second hand.",
+   "file": "faces/medical-assistant.json",
+   "assets": [
+    "medical-assistant_steth.bin"
+   ]
+  },
+  {
+   "id": "soccer",
+   "name": "Soccer",
+   "author": "ClockHub",
+   "description": "A classic black-and-white soccer ball spins on the centre spot of a striped green pitch, with white markers and a bright yellow second hand.",
+   "file": "faces/soccer.json",
+   "assets": [
+    "soccer_ball.bin",
+    "soccer_shade.bin"
+   ]
+  },
+  {
+   "id": "volleyball",
+   "name": "Volleyball",
+   "author": "ClockHub",
+   "description": "Deep blue dial with a volleyball that spins once a minute, orange hands and the date, with a yellow second hand.",
+   "file": "faces/volleyball.json",
+   "assets": [
+    "volleyball_panels.bin",
+    "volleyball_shade.bin"
+   ]
+  }
+ ]
+}

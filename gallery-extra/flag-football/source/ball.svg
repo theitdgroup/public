@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+ <defs>
+  <linearGradient id="red" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F0383C"/><stop offset="1" stop-color="#B3121A"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3D7BEA"/><stop offset="1" stop-color="#1745A8"/></linearGradient>
+  <radialGradient id="leather" cx="42%" cy="35%" r="70%"><stop offset="0" stop-color="#A9643A"/><stop offset=".6" stop-color="#7A3F1E"/><stop offset="1" stop-color="#4A230F"/></radialGradient>
+ </defs>
+ <!-- crossed flag-belt flags -->
+ <g transform="rotate(-38 120 120)"><rect x="8" y="104" width="224" height="32" rx="6" fill="url(#red)" stroke="#7A0A10" stroke-width="2"/><path d="M8,108 L28,120 L8,132" fill="#7A0A10" opacity=".35"/></g>
+ <g transform="rotate(38 120 120)"><rect x="8" y="104" width="224" height="32" rx="6" fill="url(#blue)" stroke="#0E2C70" stroke-width="2"/><path d="M232,108 L212,120 L232,132" fill="#0E2C70" opacity=".35"/></g>
+ <!-- football -->
+ <g transform="rotate(-28 120 120)">
+  <ellipse cx="120" cy="120" rx="86" ry="52" fill="url(#leather)" stroke="#2E1408" stroke-width="3"/>
+  <path d="M58,86 Q50,120 58,154" fill="none" stroke="#F4F1EA" stroke-width="7" stroke-linecap="round"/>
+  <path d="M182,86 Q190,120 182,154" fill="none" stroke="#F4F1EA" stroke-width="7" stroke-linecap="round"/>
+  <path d="M86,118 L154,118" stroke="#F4F1EA" stroke-width="5" stroke-linecap="round"/>
+  <g stroke="#F4F1EA" stroke-width="4" stroke-linecap="round">
+   <path d="M94,110 L94,126"/><path d="M106,110 L106,126"/><path d="M118,110 L118,126"/><path d="M130,110 L130,126"/><path d="M142,110 L142,126"/>
+  </g>
+  <ellipse cx="102" cy="96" rx="40" ry="10" fill="#fff" opacity=".12"/>
+ </g>
+</svg>

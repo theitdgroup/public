@@ -1,0 +1,248 @@
+{
+ "id": "ballerina",
+ "version": 1,
+ "name": "Ballerina",
+ "author": "ClockHub",
+ "description": "A ballerina en pointe pirouettes on a little music-box stage, on a deep plum dial with gold markers and sparkles.",
+ "background": {
+  "color": "#3A1446",
+  "color2": "#12061A",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "circle",
+   "radius": 231,
+   "color": "none",
+   "borderColor": "#E9C46A",
+   "borderWidth": 3
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 224,
+   "length": 6,
+   "width": 2,
+   "color": "#6B4A78",
+   "majorEvery": 5,
+   "majorLength": 16,
+   "majorWidth": 5,
+   "majorColor": "#E9C46A",
+   "round": true
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -185,
+   "size": 16,
+   "color": "#E9C46A",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "circle",
+   "x": 0,
+   "y": -6,
+   "radius": 150,
+   "color": "#F7B8D010"
+  },
+  {
+   "type": "circle",
+   "x": 0,
+   "y": -6,
+   "radius": 118,
+   "color": "#F7B8D014"
+  },
+  {
+   "type": "rect",
+   "x": 0,
+   "y": 108,
+   "w": 120,
+   "h": 20,
+   "radius": 10,
+   "color": "#F7B8D038"
+  },
+  {
+   "type": "rect",
+   "x": 0,
+   "y": 108,
+   "w": 76,
+   "h": 12,
+   "radius": 6,
+   "color": "#F7B8D050"
+  },
+  {
+   "type": "circle",
+   "x": -75,
+   "y": 124,
+   "radius": 3,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -152,
+   "y": 81,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -145,
+   "y": -90,
+   "radius": 3,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -75,
+   "y": -136,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": 72,
+   "y": -160,
+   "radius": 3,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": 123,
+   "y": -92,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": 103,
+   "y": 117,
+   "radius": 3,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": 48,
+   "y": 126,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -59,
+   "y": 156,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -86,
+   "y": 117,
+   "radius": 3,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": -189,
+   "y": 11,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "circle",
+   "x": 184,
+   "y": 10,
+   "radius": 2,
+   "color": "#F4D58DCC"
+  },
+  {
+   "type": "plate",
+   "frames": [
+    "ballerina_spin0.bin",
+    "ballerina_spin1.bin",
+    "ballerina_spin2.bin",
+    "ballerina_spin3.bin",
+    "ballerina_spin4.bin",
+    "ballerina_spin5.bin",
+    "ballerina_spin6.bin",
+    "ballerina_spin7.bin"
+   ],
+   "fps": 8,
+   "everySec": 1,
+   "x": 0,
+   "y": -9
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": 160,
+   "size": 20,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 104,
+   "tail": 14,
+   "width": 11,
+   "color": "#2A0F33"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 102,
+   "tail": 12,
+   "width": 6,
+   "color": "#E9C46A"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 168,
+   "tail": 14,
+   "width": 9,
+   "color": "#2A0F33"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 166,
+   "tail": 12,
+   "width": 4,
+   "color": "#E9C46A"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 190,
+   "tail": 30,
+   "width": 2,
+   "color": "#FF7EB0",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 8,
+   "color": "#E9C46A",
+   "borderColor": "#2A0F33",
+   "borderWidth": 2
+  },
+  {
+   "type": "circle",
+   "radius": 3,
+   "color": "#FF7EB0"
+  }
+ ],
+ "assets": [
+  "ballerina_spin0.bin",
+  "ballerina_spin1.bin",
+  "ballerina_spin2.bin",
+  "ballerina_spin3.bin",
+  "ballerina_spin4.bin",
+  "ballerina_spin5.bin",
+  "ballerina_spin6.bin",
+  "ballerina_spin7.bin"
+ ]
+}

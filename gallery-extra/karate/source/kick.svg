@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
+ <g fill="#111" stroke="#111" stroke-linejoin="round">
+  <!-- standing leg: loose gi trousers and foot -->
+  <path d="M118,150 L154,148 L146,206 L142,254 L116,256 L110,206 Z" stroke-width="4"/>
+  <path d="M104,256 L148,254 Q156,258 152,268 L104,268 Q98,262 104,256 Z" stroke-width="2"/>
+  <!-- kicking leg: thigh to heel, tapering -->
+  <path d="M132,128 L204,116 L250,110 L254,134 L206,146 L142,164 Z" stroke-width="4"/>
+  <!-- foot blade -->
+  <path d="M246,104 Q258,100 264,106 L268,142 Q262,148 252,144 Z" stroke-width="2"/>
+  <!-- jacket, leaning back -->
+  <path d="M76,96 Q96,84 120,84 L158,132 L156,148 L116,160 L104,150 Z" stroke-width="4"/>
+  <!-- head -->
+  <circle cx="90" cy="64" r="17"/>
+ </g>
+ <!-- arms -->
+ <g fill="none" stroke="#111" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M84,100 L66,128 L78,150"/>
+  <path d="M114,96 L148,108 L164,90"/>
+ </g>
+ <circle cx="79" cy="153" r="9" fill="#111"/>
+ <circle cx="166" cy="87" r="9" fill="#111"/>
+ <!-- red cut lines give the silhouette its shape: belt, jacket hem, lapel -->
+ <g fill="none" stroke="#C8102E" stroke-linecap="round">
+  <path d="M110,148 L156,136" stroke-width="5"/>
+  <path d="M136,152 L132,174 M144,150 L146,172" stroke-width="3"/>
+  <path d="M146,150 L206,134" stroke-width="2.5"/>
+  <path d="M100,96 L128,140" stroke-width="2.5"/>
+ </g>
+ <!-- headband tails -->
+ <path d="M75,58 L56,50 M75,63 L58,68" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+</svg>

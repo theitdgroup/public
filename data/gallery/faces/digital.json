@@ -1,0 +1,62 @@
+{
+ "id": "digital",
+ "version": 1,
+ "name": "Big Digital",
+ "author": "ClockHub",
+ "description": "Large time, full date and a seconds ring.",
+ "background": {
+  "color": "#000000"
+ },
+ "elements": [
+  {
+   "type": "arc",
+   "value": "seconds",
+   "radius": 229,
+   "width": 6,
+   "color": "#0A84FF",
+   "bgColor": "#1C1C1E"
+  },
+  {
+   "type": "text",
+   "text": "{dddd}",
+   "x": 0,
+   "y": -92,
+   "size": 24,
+   "color": "#0A84FF",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": -12,
+   "size": 96,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "text",
+   "text": "{ampm?}",
+   "x": 0,
+   "y": 52,
+   "size": 20,
+   "color": "#8E8E93"
+  },
+  {
+   "type": "text",
+   "text": "{MMMM} {d}, {yyyy}",
+   "x": 0,
+   "y": 84,
+   "size": 24,
+   "color": "#C7C7CC"
+  },
+  {
+   "type": "text",
+   "text": "{charging}{battery}",
+   "x": 0,
+   "y": 160,
+   "size": 16,
+   "color": "#8E8E93"
+  }
+ ]
+}

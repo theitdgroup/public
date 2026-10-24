@@ -1,0 +1,87 @@
+{
+ "id": "astrology",
+ "version": 1,
+ "name": "Astrology",
+ "author": "ClockHub",
+ "description": "A gold zodiac wheel with the twelve signs at the hours, on a purple starry sky with constellations and a soft nebula glow.",
+ "background": {
+  "color": "#10051C"
+ },
+ "elements": [
+  {
+   "type": "image",
+   "src": "astrology_dial.bin",
+   "x": 0,
+   "y": 0
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -96,
+   "size": 14,
+   "color": "#D8C4FF",
+   "upper": true,
+   "letterSpacing": 3
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": 100,
+   "size": 16,
+   "color": "#E8C97A"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 104,
+   "tail": 14,
+   "width": 11,
+   "color": "#1E0A33"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 102,
+   "tail": 12,
+   "width": 5,
+   "color": "#E8C97A"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 166,
+   "tail": 14,
+   "width": 9,
+   "color": "#1E0A33"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 164,
+   "tail": 12,
+   "width": 3,
+   "color": "#E8C97A"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 176,
+   "tail": 26,
+   "width": 2,
+   "color": "#D8C4FF",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 7,
+   "color": "#E8C97A",
+   "borderColor": "#1E0A33",
+   "borderWidth": 2
+  }
+ ],
+ "assets": [
+  "astrology_dial.bin"
+ ]
+}

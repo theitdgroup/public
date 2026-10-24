@@ -1,0 +1,172 @@
+{
+ "id": "soccer",
+ "version": 1,
+ "name": "Soccer",
+ "author": "ClockHub",
+ "description": "A classic black-and-white soccer ball spins on the centre spot of a striped green pitch, with white markers and a bright yellow second hand.",
+ "background": {
+  "color": "#2F9A45",
+  "color2": "#1C6E2E",
+  "gradient": "vertical"
+ },
+ "elements": [
+  {
+   "type": "rect",
+   "x": -203,
+   "y": 0,
+   "w": 58,
+   "h": 466,
+   "radius": 0,
+   "color": "#FFFFFF10"
+  },
+  {
+   "type": "rect",
+   "x": -87,
+   "y": 0,
+   "w": 58,
+   "h": 466,
+   "radius": 0,
+   "color": "#FFFFFF10"
+  },
+  {
+   "type": "rect",
+   "x": 29,
+   "y": 0,
+   "w": 58,
+   "h": 466,
+   "radius": 0,
+   "color": "#FFFFFF10"
+  },
+  {
+   "type": "rect",
+   "x": 145,
+   "y": 0,
+   "w": 58,
+   "h": 466,
+   "radius": 0,
+   "color": "#FFFFFF10"
+  },
+  {
+   "type": "rect",
+   "x": 0,
+   "y": 0,
+   "w": 466,
+   "h": 4,
+   "radius": 0,
+   "color": "#FFFFFFCC"
+  },
+  {
+   "type": "circle",
+   "radius": 150,
+   "color": "none",
+   "borderColor": "#FFFFFFCC",
+   "borderWidth": 4
+  },
+  {
+   "type": "circle",
+   "radius": 231,
+   "color": "none",
+   "borderColor": "#FFFFFF",
+   "borderWidth": 3
+  },
+  {
+   "type": "ticks",
+   "count": 60,
+   "radius": 224,
+   "length": 6,
+   "width": 2,
+   "color": "#BFE3C6",
+   "majorEvery": 5,
+   "majorLength": 16,
+   "majorWidth": 5,
+   "majorColor": "#FFFFFF",
+   "round": true
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": -182,
+   "size": 16,
+   "color": "#FFFFFF",
+   "upper": true,
+   "letterSpacing": 2
+  },
+  {
+   "type": "imagehand",
+   "hand": "second",
+   "smooth": true,
+   "src": "soccer_ball.bin",
+   "pivotX": 120,
+   "pivotY": 120,
+   "x": 0,
+   "y": 0
+  },
+  {
+   "type": "image",
+   "src": "soccer_shade.bin",
+   "x": 0,
+   "y": 0
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": 182,
+   "size": 20,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 102,
+   "tail": 16,
+   "width": 13,
+   "color": "#0E2A14"
+  },
+  {
+   "type": "hand",
+   "hand": "hour",
+   "length": 100,
+   "tail": 14,
+   "width": 7,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 168,
+   "tail": 16,
+   "width": 10,
+   "color": "#0E2A14"
+  },
+  {
+   "type": "hand",
+   "hand": "minute",
+   "length": 166,
+   "tail": 14,
+   "width": 5,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "hand",
+   "hand": "second",
+   "length": 192,
+   "tail": 32,
+   "width": 3,
+   "color": "#FFD60A",
+   "smooth": true
+  },
+  {
+   "type": "circle",
+   "radius": 9,
+   "color": "#FFD60A",
+   "borderColor": "#0E2A14",
+   "borderWidth": 3
+  }
+ ],
+ "assets": [
+  "soccer_ball.bin",
+  "soccer_shade.bin"
+ ]
+}

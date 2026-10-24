@@ -1,0 +1,53 @@
+{
+ "id": "neon-rings",
+ "version": 1,
+ "name": "Neon Rings",
+ "author": "ClockHub",
+ "description": "Hours, minutes and seconds as glowing rings.",
+ "background": {
+  "color": "#000000"
+ },
+ "elements": [
+  {
+   "type": "arc",
+   "value": "hours",
+   "radius": 224,
+   "width": 16,
+   "color": "#FF2D55",
+   "bgColor": "#2A0A12"
+  },
+  {
+   "type": "arc",
+   "value": "minutes",
+   "radius": 200,
+   "width": 16,
+   "color": "#30D158",
+   "bgColor": "#0A2A12"
+  },
+  {
+   "type": "arc",
+   "value": "seconds",
+   "radius": 176,
+   "width": 16,
+   "color": "#0A84FF",
+   "bgColor": "#0A1A2A"
+  },
+  {
+   "type": "text",
+   "text": "{time}",
+   "x": 0,
+   "y": -10,
+   "size": 64,
+   "color": "#FFFFFF"
+  },
+  {
+   "type": "text",
+   "text": "{ddd} {d} {MMM}",
+   "x": 0,
+   "y": 48,
+   "size": 20,
+   "color": "#8E8E93",
+   "upper": true
+  }
+ ]
+}
